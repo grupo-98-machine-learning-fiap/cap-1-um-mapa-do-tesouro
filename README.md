@@ -11,11 +11,9 @@
 ## Grupo 98 
 
 ## 👨‍🎓 Integrantes: 
+- <a href="https://www.linkedin.com/company/inova-fusca">Eduardo</a> 
+- <a href="https://www.linkedin.com/company/inova-fusca">Francisco Bittencourt</a>
 - <a href="https://www.linkedin.com/in/kaiquecadimiel/">Kaique Cadimiel</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 5</a>
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
