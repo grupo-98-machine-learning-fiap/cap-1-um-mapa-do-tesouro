@@ -6,12 +6,12 @@
 
 <br>
 
-# Nome do projeto
+# Cap 1 - Um Mapa do Tesouro
 
-## Nome do grupo
+## Grupo 98 
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 1</a>
+- <a href="https://www.linkedin.com/in/kaiquecadimiel/">Kaique Cadimiel</a>
 - <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 2</a>
 - <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 3</a> 
 - <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 4</a> 
@@ -64,6 +64,13 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
     * 
 * 0.1.0 - XX/XX/2024
     *
+
+## 📎 Clonar o projeto
+```shell
+
+git clone git@github.com:grupo-98-machine-learning-fiap/cap-1-um-mapa-do-tesouro.git
+
+```
 
 ## 📋 Licença
 
