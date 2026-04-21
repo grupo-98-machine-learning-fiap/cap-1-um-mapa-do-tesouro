@@ -11,15 +11,16 @@
 ## Grupo 98 
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/company/inova-fusca">Eduardo</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Francisco Bittencourt</a>
-- <a href="https://www.linkedin.com/in/kaiquecadimiel/">Kaique Cadimiel</a>
+- <a href="https://www.linkedin.com/company/inova-fusca">Eduardo Venancio Leite</a> 
+- <a href="https://www.linkedin.com/company/inova-fusca">Francisco José Bittencourt Corrêa</a>
+- <a href="https://www.linkedin.com/company/inova-fusca">Jullyana de Azevedo Rodrigues</a>
+- <a href="https://www.linkedin.com/in/kaiquecadimiel/">Kaique Cadimiel Amasio de Souza</a>
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do Tutor</a>
+- <a href="https://www.linkedin.com/company/inova-fusca">Nicolly Candida Rodrigues de Souza</a>
 ### Coordenador(a)
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do Coordenador</a>
+- <a href="https://www.linkedin.com/company/inova-fusca">ANDRÉ GODOI CHIOVATO</a>
 
 
 ## 📜 Descrição 
@@ -69,6 +70,13 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 - <b>src</b>: Todo o código fonte criado para o desenvolvimento do projeto ao longo das 7 fases.
 
 - <b>README.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
+
+## Video do projeto no Youtube
+
+```Shell
+https://youtu.be/uE3jJyb4hio
+
+```
 
 ## 🔧 Como executar o código
 
