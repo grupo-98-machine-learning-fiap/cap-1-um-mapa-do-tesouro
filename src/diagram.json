@@ -55,6 +55,76 @@
       "top": 6,
       "left": 503.4,
       "attrs": { "color": "blue", "flip": "1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": 38.4,
+      "left": -220.8,
+      "attrs": { "text": "N (Nitrogênio)" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": 115.2,
+      "left": -211.2,
+      "attrs": { "text": "P (Fosforo)" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": 192,
+      "left": -211.2,
+      "attrs": { "text": "K (Potásio)" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": -57.6,
+      "left": -240,
+      "attrs": { "text": "Modulo LDR (Ajusta Acidez da Terra)" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text5",
+      "top": -220.8,
+      "left": -115.2,
+      "attrs": { "text": "Modulo DH22 (Ajusta a Humidade da terra)" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text6",
+      "top": -153.6,
+      "left": 268.8,
+      "attrs": { "text": "Modulo Relé - Ativa/ Desativa Bomba de água" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text7",
+      "top": -19.2,
+      "left": 412.8,
+      "attrs": { "text": "Led indicador de bomba ativada" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text8",
+      "top": -134.4,
+      "left": 105.6,
+      "attrs": { "text": "Indicador de energia" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text9",
+      "top": 182.4,
+      "left": 355.2,
+      "attrs": { "text": "Indicador de aterramento" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text10",
+      "top": 230.4,
+      "left": 96,
+      "attrs": { "text": "ESP 32" }
     }
   ],
   "connections": [
