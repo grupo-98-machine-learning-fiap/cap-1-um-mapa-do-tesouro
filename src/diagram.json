@@ -37,7 +37,7 @@
       "id": "dht1",
       "top": -172.5,
       "left": 4.2,
-      "attrs": { "humidity": "60" }
+      "attrs": { "humidity": "11.5" }
     },
     { "type": "wokwi-relay-module", "id": "relay1", "top": -124.6, "left": 403.2, "attrs": {} },
     { "type": "wokwi-vcc", "id": "vcc1", "top": -114.44, "left": 259.2, "attrs": {} },
@@ -49,7 +49,13 @@
       "left": 403.2,
       "attrs": { "value": "330" }
     },
-    { "type": "wokwi-led", "id": "led1", "top": 48, "left": 480, "attrs": { "color": "blue" } }
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 6,
+      "left": 503.4,
+      "attrs": { "color": "blue", "flip": "1" }
+    }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
@@ -73,7 +79,8 @@
     [ "btn3:1.l", "esp:21", "green", [ "h-28.8", "v201.6", "h508.8", "v-316.8" ] ],
     [ "btn2:2.r", "gnd2:GND", "green", [ "h96.2", "v192.2", "h412.8" ] ],
     [ "btn1:2.r", "gnd2:GND", "green", [ "h48.2", "v153.8", "h412.8" ] ],
-    [ "btn3:2.r", "gnd2:GND", "green", [ "h19.4", "v134.6", "h460.8" ] ]
+    [ "btn3:2.r", "gnd2:GND", "green", [ "h19.4", "v134.6", "h460.8" ] ],
+    [ "led1:C", "gnd2:GND", "green", [ "v0" ] ]
   ],
   "serialMonitor": { "display": "terminal" },
   "dependencies": {}
