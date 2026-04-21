@@ -32,9 +32,9 @@ struct Botao {
 };
 
 Botao npk[3] = {
-  { BTN_N, "Nitrogenio (N)", false, true, true, 0 },
-  { BTN_P, "Fosforo    (P)", false, true, true, 0 },
-  { BTN_K, "Potassio   (K)", false, true, true, 0 }
+  { BTN_N, "N", false, true, true, 0 },
+  { BTN_P, "P", false, true, true, 0 },
+  { BTN_K, "K", false, true, true, 0 }
 };
 
 void atualizarBotoes();
@@ -56,12 +56,9 @@ void setup() {
   digitalWrite(RELAY_PIN, LOW);
   digitalWrite(LED_PIN,   LOW);
 
-  Serial.println("\n+=====================================+");
-  Serial.println(  "|   IRRIGACAO INTELIGENTE - CAFE IoT  |");
-  Serial.println(  "+=====================================+");
-  Serial.println(  "| Clique nos botoes para ativar ou    |");
-  Serial.println(  "| desativar cada nutriente (toggle).  |");
-  Serial.println(  "+=====================================+\n");
+  Serial.println("\n=== Irrigacao Inteligente - Cafe IoT ===");
+  Serial.println("Clique nos botoes para ativar/desativar.");
+  Serial.println();
 }
 
 // ══════════════════════════════════════════════════════════
@@ -89,10 +86,9 @@ void atualizarBotoes() {
 
       if (novoConfirmado && !npk[i].confirmado) {
         npk[i].ativo = !npk[i].ativo;
-        Serial.println("+-------------------------------------+");
-        Serial.printf( "| BOTAO  >> %-26s|\n", npk[i].nome);
-        Serial.printf( "| ESTADO >> %-26s|\n", npk[i].ativo ? "ATIVADO" : "DESATIVADO");
-        Serial.println("+-------------------------------------+\n");
+        Serial.print("[BTN] ");
+        Serial.print(npk[i].nome);
+        Serial.println(npk[i].ativo ? ": ativado" : ": desativado");
       }
 
       npk[i].confirmado = novoConfirmado;
@@ -118,9 +114,7 @@ void cicloIrrigacao() {
   float temperatura = dht.readTemperature();
 
   if (isnan(umidade) || isnan(temperatura)) {
-    Serial.println("+-------------------------------------+");
-    Serial.println("|  ERRO: falha na leitura do DHT22.  |");
-    Serial.println("+-------------------------------------+\n");
+    Serial.println("[ERRO] Falha no DHT22.");
     return;
   }
 
@@ -136,47 +130,34 @@ void cicloIrrigacao() {
   bool phAdequado  = (ph >= PH_MIN && ph <= PH_MAX);
   bool npkAdequado = (totalNPK >= NUTRIENTES_MIN);
 
-  // ── Leituras ────────────────────────────────────────────
-  Serial.println("+=====================================+");
-  Serial.println("|            LEITURAS                 |");
-  Serial.println("+-------------------------------------+");
-  Serial.printf( "|  Umidade    : %5.1f%%  %-13s|\n",
-    umidade, soloSeco ? "(SOLO SECO)" : "(SOLO UMIDO)");
-  Serial.printf( "|  Temperatura: %5.1f C                |\n", temperatura);
-  Serial.printf( "|  pH         : %5.2f   %-13s|\n",
-    ph, phAdequado ? "(ADEQUADO)" : "(INADEQUADO)");
+  // Leituras
+  Serial.println("---");
+  Serial.print("Umidade: ");     Serial.print(umidade, 1);
+  Serial.println(soloSeco ? "% (seco)" : "% (umido)");
+  Serial.print("Temp: ");        Serial.print(temperatura, 1); Serial.println(" C");
+  Serial.print("pH: ");          Serial.print(ph, 2);
+  Serial.println(phAdequado ? " (adequado)" : " (inadequado)");
+  Serial.print("Nutrientes: N:");Serial.print(npk[0].ativo ? "ON" : "OFF");
+  Serial.print(" P:");           Serial.print(npk[1].ativo ? "ON" : "OFF");
+  Serial.print(" K:");           Serial.println(npk[2].ativo ? "ON" : "OFF");
 
-  // ── Nutrientes ──────────────────────────────────────────
-  Serial.println("+-------------------------------------+");
-  Serial.println("|            NUTRIENTES               |");
-  Serial.println("+-------------------------------------+");
-  for (int i = 0; i < 3; i++) {
-    Serial.printf("|  %-20s  [ %-3s ]       |\n",
-      npk[i].nome, npk[i].ativo ? "ON" : "OFF");
-  }
-  Serial.printf( "|  Total ativos: %d de 3               |\n", totalNPK);
-
-  // ── Decisão ─────────────────────────────────────────────
-  Serial.println("+-------------------------------------+");
-  Serial.println("|            DECISAO                  |");
-  Serial.println("+-------------------------------------+");
-
+  // Decisão
   if (!soloSeco) {
-    Serial.println("|  Solo umido.                        |");
-    Serial.println("|  >> Irrigacao nao necessaria.       |");
+    Serial.println("Solo umido. Irrigacao desligada.");
     setIrrigacao(false);
-  } else {
-    Serial.println("|  Solo seco - verificando...         |");
-    if (phAdequado && npkAdequado) {
-      Serial.println("|  >> IRRIGACAO ATIVADA!              |");
-      setIrrigacao(true);
-    } else {
-      Serial.println("|  >> Irrigacao bloqueada:            |");
-      if (!phAdequado)  Serial.println("|     - pH fora da faixa ideal.       |");
-      if (!npkAdequado) Serial.printf( "|     - Nutri. insuf. (%d/3 ativos). |\n", totalNPK);
-      setIrrigacao(false);
-    }
+    return;
   }
 
-  Serial.println("+=====================================+\n");
+  Serial.println("Solo seco, verificando...");
+
+  if (phAdequado && npkAdequado) {
+    Serial.println(">> Irrigacao ATIVADA.");
+    setIrrigacao(true);
+  } else {
+    Serial.print(">> Irrigacao bloqueada: ");
+    if (!phAdequado && !npkAdequado) Serial.println("pH e nutrientes inadequados.");
+    else if (!phAdequado)            Serial.println("pH inadequado.");
+    else                             Serial.println("nutrientes insuficientes.");
+    setIrrigacao(false);
+  }
 }
